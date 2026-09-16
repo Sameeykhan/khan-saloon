@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khan's Saloon & Royal Bridal Couture | Luxury Salon & Bridal Atelier</title>
+  <meta name="description" content="Welcome to Khan's Saloon & Royal Bridal Couture. Pakistan's premier luxury salon offering flawless bridal makeup, bespoke handcrafted couture (pure zardozi, banarasi handloom & mughal tilla), 22K gold-plated bridal jewelry, and signature salon services." />
+  
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. TOP ANNOUNCEMENT BAR
+       ========================================================================== -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <div class="announcement-ticker">
+        <span class="badge-sparkle">Wedding Season 2026</span>
+        <span>✨ Up to 20% OFF Salon Services | 15% OFF Bridal Packages with code <strong>KHAN2026</strong> | Nationwide & Worldwide Delivery ✨</span>
+      </div>
+      <div class="announcement-tools">
+        <a href="https://wa.me/923001234567" target="_blank" title="Call or WhatsApp">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>+92 300 1234567</span>
+        </a>
+        <select id="currency-selector" class="currency-select" aria-label="Select Currency">
+          <option value="PKR" selected>PKR (Rs.)</option>
+          <option value="USD">USD ($)</option>
+          <option value="AED">AED (Dirhams)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. STICKY MAIN NAVIGATION (MATCHING REFERENCE DESIGN)
+       ========================================================================== -->
+  <header class="main-header">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo (Crown Icon + Text + Tagline) -->
+      <a href="#home" class="brand-logo">
+        <svg class="logo-crown-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5m14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">Khan's Saloon</span>
+          <span class="brand-tagline">Beauty • Style • Confidence</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu (Faithful to Mockup) -->
+      <nav class="nav-menu" id="main-nav-menu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#services-menu" class="nav-link nav-dropdown-link">
+          <span>Services</span>
+          <svg class="chevron-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <a href="#cosmetics-sale" class="nav-link nav-dropdown-link">
+          <span>Products</span>
+          <svg class="chevron-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <a href="#bridal-gallery" class="nav-link">Gallery</a>
+        <a href="#couture-collection" class="nav-link">Couture</a>
+        <a href="#reviews" class="nav-link">About Us</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Nav Action Buttons -->
+      <div class="nav-actions">
+        <!-- Search Trigger -->
+        <button class="btn-icon" onclick="openSearchModal()" title="Search Collections & Services" aria-label="Search">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- Cart Drawer Trigger -->
+        <button class="btn-icon" onclick="toggleCartDrawer(true)" title="Shopping Bag" aria-label="Cart">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="icon-badge" id="cart-badge-count">0</span>
+        </button>
+
+        <!-- Book Appointment Button (Matching Mockup Pill Button) -->
+        <button class="btn-book-nav" onclick="openBookingModal()">
+          <span>Book Appointment</span>
+        </button>
+
+        <!-- Mobile Nav Toggle -->
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle menu">
+          ☰
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       3. HERO SECTION (FAITHFUL TO REFERENCE DESIGN)
+       ========================================================================== -->
+  <section class="hero-section" id="home">
+    <div class="container hero-container">
+      
+      <!-- Hero Left Content -->
+      <div class="hero-content">
+        <span class="hero-eyebrow">✦ WELCOME TO ✦</span>
+        <h1 class="hero-title">Khan's Saloon</h1>
+        <div class="hero-subtitle-script">Where Beauty Meets Care</div>
+        <p class="hero-desc">
+          From flawless makeup to healthy hair, glowing skin and beautiful nails – we bring out the best version of you.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-hero-pill" onclick="openBookingModal('Bridal & Salon Consultation')">
+            <span>Book Your Appointment</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Right Visual (Clean Portrait from reference image) -->
+      <div class="hero-visual">
+        <div class="hero-model-wrap">
+          <img src="assets/images/hero_model_portrait.png" alt="Khan's Saloon Bridal Beauty" class="hero-model-img" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. CATEGORIES QUICK-NAV ICONS BAR (FAITHFUL TO REFERENCE DESIGN)
+       ========================================================================== -->
+  <section class="categories-bar-section">
+    <div class="container">
+      <div class="category-chips-grid">
+        
+        <!-- 1. Makeup -->
+        <a href="#makeup-services" class="category-chip-item">
+          <div class="category-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="13" r="6"></circle>
+              <path d="M6 9c0-3.3 2.7-6 6-6s6 2.7 6 6"></path>
+              <path d="M6 9h12"></path>
+              <path d="M9 12.5c.5-.4 1.2-.4 1.8 0"></path>
+              <path d="M13.2 12.5c.5-.4 1.2-.4 1.8 0"></path>
+              <path d="M10.5 15.5c.8.5 2.2.5 3 0"></path>
+            </svg>
+          </div>
+          <span class="category-chip-title">Makeup</span>
+        </a>
+
+        <!-- 2. Hair -->
+        <a href="#hair-services" class="category-chip-item">
+          <div class="category-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3c-4.5 0-7 3-7 7.5 0 3 1.2 5.5 2.2 8.5 1-2.5 1.5-4.5 2.3-5.5.8 2.5 1.8 5 2.5 7.5.7-2.5 1.7-5 2.5-7.5.8 1 1.3 3 2.3 5.5 1-3 2.2-5.5 2.2-8.5C19 6 16.5 3 12 3z"></path>
+              <circle cx="12" cy="10.5" r="3"></circle>
+            </svg>
+          </div>
+          <span class="category-chip-title">Hair</span>
+        </a>
+
+        <!-- 3. Nails -->
+        <a href="#nail-care-facials" class="category-chip-item">
+          <div class="category-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="7" y="3" width="10" height="18" rx="5"></rect>
+              <path d="M10 7h4"></path>
+              <path d="M9 11h6"></path>
+            </svg>
+          </div>
+          <span class="category-chip-title">Nails</span>
+        </a>
+
+        <!-- 4. Manicure -->
+        <a href="#nail-care-facials" class="category-chip-item">
+          <div class="category-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 14V7a1.5 1.5 0 0 1 3 0v6"></path>
+              <path d="M9 11V4.5a1.5 1.5 0 0 1 3 0V11"></path>
+              <path d="M12 10V6a1.5 1.5 0 0 1 3 0v5"></path>
+              <path d="M15 12V8a1.5 1.5 0 0 1 3 0v6c0 4-3 7-6.5 7S5 18 5 14v-2"></path>
+            </svg>
+          </div>
+          <span class="category-chip-title">Manicure</span>
+        </a>
+
+        <!-- 5. Pedicure -->
+        <a href="#nail-care-facials" class="category-chip-item">
+          <div class="category-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 3v10c0 1.5 1 2.5 2 3.5l2 2.5c.5.7.3 1.7-.5 2.2-.6.4-1.5.3-2-.3l-4-5c-.8-1-1.5-2.2-1.5-3.5V3h4z"></path>
+              <circle cx="18" cy="18" r="1.2"></circle>
+            </svg>
+          </div>
+          <span class="category-chip-title">Pedicure</span>
+        </a>
+
+        <!-- 6. Facial -->
+        <a href="#nail-care-facials" class="category-chip-item">
+          <div class="category-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="13" r="6"></circle>
+              <path d="M5 8c0-3 3-5 7-5s7 2 7 5"></path>
+              <path d="M5 8h14"></path>
+              <circle cx="9.5" cy="12.5" r=".7"></circle>
+              <circle cx="14.5" cy="12.5" r=".7"></circle>
+              <path d="M10.5 15.5c.8.5 2.2.5 3 0"></path>
+            </svg>
+          </div>
+          <span class="category-chip-title">Facial</span>
+        </a>
+
+        <!-- 7. Hydra Facial -->
+        <a href="#nail-care-facials" class="category-chip-item">
+          <div class="category-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l4.5 5.5a6.5 6.5 0 1 1-9 0L12 3z"></path>
+              <path d="M10 13a2 2 0 0 0 2 2"></path>
+            </svg>
+          </div>
+          <span class="category-chip-title">Hydra Facial</span>
+        </a>
+
+        <!-- 8. Mehndi -->
+        <a href="#mehndi-designs" class="category-chip-item">
+          <div class="category-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="2.5"></circle>
+              <path d="M12 3v3m0 12v3M3 12h3m12 0h3"></path>
+              <path d="M5.6 5.6l2.1 2.1m8.6 8.6l2.1 2.1M5.6 18.4l2.1-2.1m8.6-8.6l2.1-2.1"></path>
+              <circle cx="12" cy="7.5" r="1"></circle>
+              <circle cx="12" cy="16.5" r="1"></circle>
+              <circle cx="7.5" cy="12" r="1"></circle>
+              <circle cx="16.5" cy="12" r="1"></circle>
+            </svg>
+          </div>
+          <span class="category-chip-title">Mehndi</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. EXCLUSIVE DISCOUNTS GOLD BANNER (EXACT TO IMAGE 2 & 3)
+       ========================================================================== -->
+  <section class="discount-banner-section" id="offers">
+    <div class="container">
+      <div class="gold-discount-card">
+        <div class="discount-heading-box">
+          <h2 class="discount-title-main">Exclusive Discounts</h2>
+          <div class="discount-offers-row">
+            <div class="discount-offer-col">
+              <div class="discount-offer-val">20% OFF</div>
+              <div class="discount-offer-label">ALL SERVICES</div>
+            </div>
+            <div class="discount-divider-vertical"></div>
+            <div class="discount-offer-col">
+              <div class="discount-offer-val">15% OFF</div>
+              <div class="discount-offer-label">BRIDAL PACKAGES</div>
+            </div>
+          </div>
+          <div class="discount-cta-box">
+            <span class="coupon-pill" onclick="copyCoupon('KHAN2026')" title="Click to copy coupon code">
+              <span>PROMO CODE:</span>
+              <strong style="text-decoration: underline;">KHAN2026</strong>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </span>
+            <button class="btn-discount-book" onclick="openBookingModal('Special Offer 20% Discount')">
+              Claim Offer Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. SALON SERVICES SHOWCASE (EXACT MATCH TO IMAGES 2 & 3)
+       ========================================================================== -->
+  <section class="services-section" id="services-menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">Signature Salon Menu</span>
+        <h2 class="section-title">Professional Salon Services</h2>
+        <p class="section-desc">
+          Indulge in Khan's Saloon world-class treatments crafted with luxury Italian hair care, bespoke cosmetic formulations, and master bridal artisans.
+        </p>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- Rendered dynamically by app.js matching Image 2 & 3 (Makeup, Hair, Nails & Facial, Mehndi) -->
+      <div id="services-container"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. PAKISTANI BRIDAL GALLERY (REQUESTED: "MOST BEAUTIFUL PAKISTANI BRIDES")
+       ========================================================================== -->
+  <section class="bridal-gallery-section" id="bridal-gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">Khan's Signature Brides</span>
+        <h2 class="section-title">The Most Beautiful Pakistani Brides</h2>
+        <p class="section-desc">
+          Witness the majesty of real Pakistani brides styled by Khan's Saloon. From traditional deep crimson Barat royalty to modern pastel Walima enchantments, each bride is adorned in bespoke couture and authentic royal jewels.
+        </p>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- Bridal Filter Tabs -->
+      <div class="filter-tabs-container">
+        <button class="filter-tab-btn active" data-target="bridal" data-filter="all">All Bridal Looks</button>
+        <button class="filter-tab-btn" data-target="bridal" data-filter="walima">Walima & Reception</button>
+        <button class="filter-tab-btn" data-target="bridal" data-filter="barat">Grand Barat</button>
+        <button class="filter-tab-btn" data-target="bridal" data-filter="nikkah">Nikkah Pure Elegance</button>
+        <button class="filter-tab-btn" data-target="bridal" data-filter="mehndi">Festive Mehndi & Mayun</button>
+      </div>
+
+      <!-- Bridal Cards Grid -->
+      <div class="bridal-grid" id="bridal-gallery-grid"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. HANDCRAFTED BRIDAL COUTURE (CRAFT SPECIALIZATIONS)
+       ========================================================================== -->
+  <section class="couture-section" id="couture-collection">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">Handcrafted Bridal Couture</span>
+        <h2 class="section-title">Artisan Bridal Craft Specializations</h2>
+        <p class="section-desc">
+          Exquisite bridal masterworks categorized by generational craft specializations — Pure Handcrafted Zardozi & Antique Gold Dabka, Royal Mughal Tilla Filigree, Handloom Banarasi Katan Silk, and Delicate Resham Badla. Available for custom orders and measurements.
+        </p>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- Couture Filter Tabs -->
+      <div class="filter-tabs-container">
+        <button class="filter-tab-btn active" data-target="couture" data-filter="all">All Masterpieces</button>
+        <button class="filter-tab-btn" data-target="couture" data-filter="zardozi-dabka">Royal Zardozi & Dabka</button>
+        <button class="filter-tab-btn" data-target="couture" data-filter="tilla-filigree">Mughal Tilla Embroidery</button>
+        <button class="filter-tab-btn" data-target="couture" data-filter="resham-peshwas">Resham & Pearl Peshwas</button>
+        <button class="filter-tab-btn" data-target="couture" data-filter="banarasi-handloom">Pure Banarasi Handloom</button>
+      </div>
+
+      <!-- Couture Cards Grid -->
+      <div class="couture-grid" id="couture-grid"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. ROYAL BRIDAL JEWELRY BOUTIQUE - FOR SALE (REQUESTED)
+       ========================================================================== -->
+  <section class="jewelry-section" id="jewelry-boutique">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">Royal Jewels Collection • Available For Purchase</span>
+        <h2 class="section-title">Pakistani Bridal Jewelry Boutique</h2>
+        <p class="section-desc">
+          Shop authentic 22K gold-plated Kundan, Polki, Meenakari, and Basra Pearl bridal jewelry. Handcrafted by generational jewelers for Pakistani brides worldwide. All pieces available for direct online purchase or WhatsApp inquiry.
+        </p>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- Jewelry Filter Tabs -->
+      <div class="filter-tabs-container">
+        <button class="filter-tab-btn active" data-target="jewelry" data-filter="all">All Jewelry</button>
+        <button class="filter-tab-btn" data-target="jewelry" data-filter="bridal-sets">Full Bridal Sets</button>
+        <button class="filter-tab-btn" data-target="jewelry" data-filter="chokers">Chokers & Necklaces</button>
+        <button class="filter-tab-btn" data-target="jewelry" data-filter="matha-patti">Matha Patti & Tikkas</button>
+        <button class="filter-tab-btn" data-target="jewelry" data-filter="bangles">Karas & Bangles</button>
+        <button class="filter-tab-btn" data-target="jewelry" data-filter="nath">Royal Naths</button>
+      </div>
+
+      <!-- Jewelry Cards Grid -->
+      <div class="jewelry-grid" id="jewelry-grid"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       10. KHAN'S COSMETICS & BEAUTY PRODUCTS SALE (MATCHING IMAGE 2)
+       ========================================================================== -->
+  <section class="cosmetics-section" id="cosmetics-sale">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">Khan's Beauty Line</span>
+        <h2 class="section-title">Khan's Products Sale</h2>
+        <p class="section-desc">
+          Professional makeup artist formulas designed for 24-hour humidity resistance and flawless camera finishes. Add to cart with instant delivery nationwide.
+        </p>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- Cosmetics Cards Grid -->
+      <div class="cosmetics-grid" id="cosmetics-grid"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       11. REAL PAKISTANI BRIDE STORIES & TESTIMONIALS
+       ========================================================================== -->
+  <section class="testimonials-section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">Words of Elegance • Real Pakistani Brides</span>
+        <h2 class="section-title">Royal Bride Stories</h2>
+        <p class="section-desc">
+          Cherished memories from brides across Karachi, Lahore, Islamabad, and overseas who trusted Khan's Saloon for their unforgettable wedding milestones.
+        </p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="testimonials-grid" id="testimonials-grid"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       12. BRIDAL COUTURE & SALON FAQS
+       ========================================================================== -->
+  <section class="faq-section" id="faqs">
+    <div class="container faq-container">
+      <div class="section-header">
+        <span class="section-pretitle">Everything You Need to Know</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">
+          Answers to your questions regarding bridal makeup bookings, custom fitting timelines for handcrafted bridal couture, 22K gold jewelry guarantees, and international courier delivery.
+        </p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="faq-accordion-list" id="faq-accordion-list"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       11. LUXURY FOOTER
+       ========================================================================== -->
+  <footer class="main-footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Col 1: Brand & Manifesto -->
+        <div class="footer-brand">
+          <div class="brand-logo" style="margin-bottom: 12px;">
+            <svg class="logo-crown-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5m14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
+            </svg>
+            <div class="brand-text">
+              <span class="brand-name">Khan's Saloon</span>
+              <span class="brand-tagline" style="color: var(--gold-light);">Beauty • Style • Confidence</span>
+            </div>
+          </div>
+          <p>
+            Where Beauty Meets Care. Pakistan's most revered bridal destination specializing in signature bridal makeovers, handcrafted royal bridal couture, and bespoke 22K gold-plated royal jewelry.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://instagram.com" target="_blank" class="social-icon-btn" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" class="social-icon-btn" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="https://tiktok.com" target="_blank" class="social-icon-btn" aria-label="TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+              </svg>
+            </a>
+            <a href="https://wa.me/923001234567" target="_blank" class="social-icon-btn" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-title">Salon Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="#makeup-services">Bridal & Party Makeup</a></li>
+            <li><a href="#hair-services">Balayage & Hair Streaks</a></li>
+            <li><a href="#nail-care-facials">Advanced Hydra Facials</a></li>
+            <li><a href="#nail-care-facials">Deluxe Manicure & Pedicure</a></li>
+            <li><a href="#mehndi-designs">Royal Bridal Mehndi</a></li>
+            <li><a href="#reviews">Verified Bride Reviews</a></li>
+            <li><a href="#faqs">Bridal FAQs</a></li>
+            <li><a href="#offers">Wedding Season Discounts</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Bridal Couture & Jewelry -->
+        <div>
+          <h4 class="footer-col-title">Boutique & Jewels</h4>
+          <ul class="footer-links-list">
+            <li><a href="#couture-collection">Royal Zardozi Lehengas</a></li>
+            <li><a href="#couture-collection">Pure Banarasi Shararas</a></li>
+            <li><a href="#jewelry-boutique">Royal Kundan Choker Sets</a></li>
+            <li><a href="#jewelry-boutique">Mughal Polki Necklaces</a></li>
+            <li><a href="#jewelry-boutique">Pakistani Bridal Naths</a></li>
+            <li><a href="#cosmetics-sale">Khan's Cosmetics Sale</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Locations & Newsletter -->
+        <div>
+          <h4 class="footer-col-title">Saloon Branches</h4>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span><strong>Karachi:</strong> Block 4, Clifton & DHA Phase 6</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span><strong>Lahore:</strong> MM Alam Road, Gulberg III</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Mon - Sun: 10:30 AM - 9:00 PM</span>
+          </div>
+          
+          <div class="footer-newsletter" style="margin-top: 20px;">
+            <p>Subscribe for exclusive bridal discounts & updates:</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Subscribed! Check your inbox for 10% OFF voucher.');">
+              <input type="email" class="newsletter-input" placeholder="Enter your email" required />
+              <button type="submit" class="newsletter-btn">Join</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>© 2026 Khan's Saloon & Royal Bridal Couture. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#home">Privacy Policy</a>
+          <a href="#home">Terms of Service</a>
+          <a href="#home">Bridal Booking Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       12. SLIDE-OUT SHOPPING CART DRAWER
+       ========================================================================== -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="toggleCartDrawer(false)"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Cart">
+    <div class="cart-header">
+      <div class="cart-header-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span>Your Shopping Bag</span>
+      </div>
+      <span class="cart-close-btn" onclick="toggleCartDrawer(false)">&times;</span>
+    </div>
+
+    <!-- Items list -->
+    <div class="cart-items-list" id="cart-items-list"></div>
+
+    <!-- Cart Footer with Pricing & Order Triggers -->
+    <div class="cart-footer">
+      <div class="cart-coupon-box">
+        <input type="text" id="cart-coupon-input" class="cart-coupon-input" placeholder="Promo code (e.g. KHAN2026)" />
+        <button class="btn-apply-coupon" onclick="applyCouponCode()">Apply</button>
+      </div>
+      
+      <div class="cart-summary-line">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">Rs. 0</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Discount</span>
+        <span id="cart-discount" style="color: #16A34A;">Rs. 0</span>
+      </div>
+      <div class="cart-summary-line total">
+        <span>Estimated Total</span>
+        <span id="cart-total">Rs. 0</span>
+      </div>
+
+      <div class="cart-cta-buttons">
+        <button class="btn-whatsapp" onclick="checkoutViaWhatsApp()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.588-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.177.181-.076.355.101.173.449.741.964 1.2.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/>
+          </svg>
+          Order Directly via WhatsApp
+        </button>
+        <button class="btn-gold" onclick="openCheckoutModal()">
+          Standard Checkout (COD / Bank)
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       13. APPOINTMENT BOOKING MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="booking-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Book an Appointment</h3>
+        <span class="modal-close-btn" onclick="closeBookingModal()">&times;</span>
+      </div>
+      <form class="modal-body" onsubmit="handleBookingSubmit(event)">
+        
+        <div class="form-group">
+          <label class="form-label" for="book-name">Full Name *</label>
+          <input type="text" id="book-name" class="form-input" placeholder="e.g. Ayesha Khan" required />
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label" for="book-phone">WhatsApp / Mobile Number *</label>
+            <input type="tel" id="book-phone" class="form-input" placeholder="0300 1234567" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="book-branch">Select Saloon Branch *</label>
+            <select id="book-branch" class="form-select" required>
+              <option value="Karachi - Clifton Branch">Karachi - Clifton</option>
+              <option value="Karachi - DHA Phase 6">Karachi - DHA Phase 6</option>
+              <option value="Lahore - Gulberg MM Alam">Lahore - Gulberg MM Alam</option>
+              <option value="Islamabad - F-7 Markaz">Islamabad - F-7</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="book-service-select">Select Service / Bridal Look *</label>
+          <select id="book-service-select" class="form-select" required>
+            <option value="Bridal Look (Rs. 25,000)">Signature Bridal Look (Rs. 25,000)</option>
+            <option value="Party Makeup (Rs. 8,000)">Party Makeup (Rs. 8,000)</option>
+            <option value="No-Makeup Look (Rs. 5,000)">No-Makeup Look (Rs. 5,000)</option>
+            <option value="Hair Color & Streaks (Rs. 6,000+)">Hair Color & Streaks (Rs. 6,000+)</option>
+            <option value="Highlights & Balayage (Rs. 8,500+)">Highlights & Balayage (Rs. 8,500+)</option>
+            <option value="Designer Haircuts (Starting Rs. 1,000)">Designer Haircuts (Starting Rs. 1,000)</option>
+            <option value="Deluxe Manicure & Pedicure (Rs. 1,500/2,000)">Deluxe Manicure & Pedicure (Rs. 1,500 / 2,000)</option>
+            <option value="Advanced Hydra Facial (Rs. 4,500)">Advanced Hydra Facial (Rs. 4,500)</option>
+            <option value="24K Gold Bridal Facial (Rs. 6,500)">24K Gold Bridal Facial (Rs. 6,500)</option>
+            <option value="Royal Bridal Mehndi (Rs. 10,000)">Royal Bridal Mehndi (Rs. 10,000)</option>
+            <option value="Simple Mandala Mehndi (Rs. 1,000)">Simple Mandala Mehndi (Rs. 1,000)</option>
+            <option value="Arabic Floral Mehndi (Rs. 2,500)">Arabic Floral Mehndi (Rs. 2,500)</option>
+            <option value="Bridal Couture Fitting & Styling Consultation">Bridal Couture Fitting & Styling Consultation</option>
+          </select>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label" for="book-date">Preferred Date *</label>
+            <input type="date" id="book-date" class="form-input" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="book-time">Preferred Time Slot *</label>
+            <select id="book-time" class="form-select" required>
+              <option value="11:00 AM">11:00 AM</option>
+              <option value="01:00 PM">01:00 PM</option>
+              <option value="03:00 PM">03:00 PM</option>
+              <option value="05:00 PM">05:00 PM</option>
+              <option value="07:00 PM">07:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="book-notes">Special Instructions (Optional)</label>
+          <textarea id="book-notes" class="form-textarea" rows="2" placeholder="Mention if you have multiple guests or specific bridal dress / jewelry requirements..."></textarea>
+        </div>
+
+        <div style="display: flex; gap: 12px; margin-top: 8px;">
+          <button type="submit" class="btn-gold" style="flex: 1;">
+            Confirm Appointment
+          </button>
+          <button type="button" class="btn-outline-gold" onclick="closeBookingModal()">
+            Cancel
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       14. LIGHTBOX & QUICK VIEW MODAL (BRIDAL LOOKS & JEWELRY)
+       ========================================================================== -->
+  <div class="modal-overlay lightbox-modal" id="lightbox-modal">
+    <div class="modal-card" id="lightbox-content">
+      <!-- Populated dynamically by openLightbox(), openJewelryQuickView(), openDressQuickView() -->
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       16. INTERACTIVE GLOBAL SEARCH MODAL
+       ========================================================================== -->
+  <div class="modal-overlay search-modal" id="search-modal">
+    <div class="modal-card search-modal-card">
+      <div class="search-modal-header">
+        <div class="search-input-wrap">
+          <svg class="search-input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="search-global-input" class="search-global-input" placeholder="Search salon services, royal zardozi couture, bridal jewelry, looks..." autocomplete="off" />
+        </div>
+        <span class="modal-close-btn" onclick="closeSearchModal()">&times;</span>
+      </div>
+      <div class="search-results-meta">
+        <span id="search-results-count">Featured Luxury Highlights</span>
+        <span class="search-hint-kbd">Press <kbd>ESC</kbd> to close</span>
+      </div>
+      <div class="search-results-list" id="search-results-list"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       17. BESPOKE ROYAL CHECKOUT MODAL
+       ========================================================================== -->
+  <div class="modal-overlay checkout-modal" id="checkout-modal">
+    <div class="modal-card checkout-modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Royal Concierge Checkout</h3>
+          <p style="font-size: 0.82rem; color: var(--gold-primary); margin-top: 2px;">Cash on Delivery & Direct Bank Transfer Available</p>
+        </div>
+        <span class="modal-close-btn" onclick="closeCheckoutModal()">&times;</span>
+      </div>
+      
+      <form class="modal-body checkout-form" onsubmit="handleCheckoutSubmit(event)">
+        
+        <!-- Order Summary Preview -->
+        <div class="checkout-summary-box" id="checkout-order-summary"></div>
+
+        <div class="form-group">
+          <label class="form-label" for="checkout-name">Full Recipient Name *</label>
+          <input type="text" id="checkout-name" class="form-input" placeholder="e.g. Ayesha Siddiqui" required />
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label" for="checkout-phone">WhatsApp / Contact Number *</label>
+            <input type="tel" id="checkout-phone" class="form-input" placeholder="0300 1234567" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="checkout-city">Destination City *</label>
+            <input type="text" id="checkout-city" class="form-input" placeholder="Karachi, Lahore, Islamabad, Dubai, etc." required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="checkout-address">Complete Delivery Address *</label>
+          <textarea id="checkout-address" class="form-textarea" rows="2" placeholder="House/Apartment #, Street, Sector, Landmark..." required></textarea>
+        </div>
+
+        <!-- Payment Method Selection -->
+        <div class="form-group">
+          <label class="form-label">Payment Method *</label>
+          <div class="payment-method-selector">
+            <label class="payment-radio-label">
+              <input type="radio" name="payment_method" value="Cash on Delivery (COD)" checked />
+              <div class="payment-method-card">
+                <span class="pm-title">💵 Cash on Delivery (COD)</span>
+                <span class="pm-desc">Pay upon delivery across Pakistan</span>
+              </div>
+            </label>
+            <label class="payment-radio-label">
+              <input type="radio" name="payment_method" value="Direct Bank Transfer" />
+              <div class="payment-method-card">
+                <span class="pm-title">🏦 Direct Bank Transfer</span>
+                <span class="pm-desc">For custom couture & international orders</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; margin-top: 14px;">
+          <button type="submit" class="btn-gold" style="flex: 1;">
+            Place Order & Generate Invoice
+          </button>
+          <button type="button" class="btn-outline-gold" onclick="closeCheckoutModal()">
+            Cancel
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       15. FLOATING WHATSAPP BUTTON
+       ========================================================================== -->
+  <a href="https://wa.me/923001234567?text=Hello%20Khan%27s%20Saloon,%20I%20would%20like%20to%20inquire%20about%20bridal%20services,%20dresses,%20and%20jewelry." class="floating-whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.588-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.177.181-.076.355.101.173.449.741.964 1.2.662.591 1.221.774 1.394.861.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/>
+    </svg>
+    <div class="floating-whatsapp-tooltip">Chat with Bridal Concierge</div>
+  </a>
+
+  <!-- JavaScript Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

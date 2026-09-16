@@ -1,0 +1,257 @@
+/* ==========================================================================
+   KHAN'S SALOON & ROYAL BRIDAL COUTURE - RESPONSIVE STYLESHEET
+   ========================================================================== */
+
+/* Large Tablets & Small Laptops (Max 1200px) */
+@media (max-width: 1200px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .hero-subtitle-script {
+    font-size: 2.3rem;
+  }
+  .category-chips-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .jewelry-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cosmetics-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablets (Max 992px) */
+@media (max-width: 992px) {
+  .nav-menu {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 280px;
+    height: calc(100vh - 80px);
+    background: #FFFFFF;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 24px;
+    gap: 18px;
+    box-shadow: var(--shadow-lg);
+    transition: left var(--transition-smooth);
+    z-index: 99;
+  }
+
+  .nav-menu.open {
+    left: 0;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .btn-book-nav {
+    display: none;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .hero-content {
+    padding-right: 0;
+  }
+
+  .hero-desc {
+    margin: 0 auto 24px;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-model-wrap {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .service-cards-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bridal-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .couture-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .jewelry-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lightbox-modal .modal-card {
+    grid-template-columns: 1fr;
+    max-height: 85vh;
+  }
+
+  .lightbox-img-wrap {
+    height: 350px;
+  }
+}
+
+/* Mobile Devices (Max 768px) */
+@media (max-width: 768px) {
+  .announcement-tools {
+    display: none;
+  }
+
+  .announcement-ticker {
+    font-size: 0.75rem;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .hero-subtitle-script {
+    font-size: 2rem;
+  }
+
+  .hero-script-sticker {
+    font-size: 2.2rem;
+    right: 15px;
+  }
+
+  .category-chips-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .category-chip-item {
+    padding: 10px 4px;
+  }
+
+  .category-icon-wrapper {
+    width: 34px;
+    height: 34px;
+  }
+
+  .category-chip-title {
+    font-size: 0.72rem;
+  }
+
+  .service-cards-row {
+    grid-template-columns: 1fr;
+  }
+
+  .service-category-group {
+    padding: 24px 16px;
+  }
+
+  .discount-offers-row {
+    gap: 20px;
+  }
+
+  .discount-offer-val {
+    font-size: 1.9rem;
+  }
+
+  .discount-divider-vertical {
+    height: 40px;
+  }
+
+  .bridal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .couture-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jewelry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cosmetics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .cart-drawer {
+    width: 100%;
+  }
+
+  .form-row-2 {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .payment-method-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .search-result-row {
+    flex-wrap: wrap;
+  }
+
+  .search-result-btn {
+    width: 100%;
+  }
+
+  .faq-q-text {
+    font-size: 1rem;
+  }
+}
+
+/* Small Mobile Screens (Max 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.95rem;
+  }
+  .hero-subtitle-script {
+    font-size: 1.7rem;
+  }
+  .category-chips-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cosmetics-grid {
+    grid-template-columns: 1fr;
+  }
+  .discount-offers-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .discount-divider-vertical {
+    display: none;
+  }
+
+  .testimonial-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .testimonial-badge {
+    position: static;
+    margin-top: 8px;
+  }
+}

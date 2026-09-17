@@ -60,19 +60,34 @@
         </div>
       </a>
 
-      <!-- Desktop Nav Menu (Faithful to Mockup) -->
+      <!-- Desktop Nav Menu (Matching Reference Image Exactly) -->
       <nav class="nav-menu" id="main-nav-menu">
         <a href="#home" class="nav-link active">Home</a>
-        <a href="#services-menu" class="nav-link nav-dropdown-link">
-          <span>Services</span>
-          <svg class="chevron-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </a>
-        <a href="#cosmetics-sale" class="nav-link nav-dropdown-link">
-          <span>Products</span>
-          <svg class="chevron-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </a>
+        <div class="nav-dropdown-item">
+          <a href="#services-menu" class="nav-link nav-dropdown-link">
+            <span>Services</span>
+            <svg class="chevron-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="#makeup-services">Bridal & Party Makeup</a>
+            <a href="#hair-services">Hair Styling & Balayage</a>
+            <a href="#nail-care-facials">Nails & Deluxe Spa</a>
+            <a href="#nail-care-facials">Advanced Hydra Facials</a>
+            <a href="#mehndi-designs">Royal Bridal Mehndi</a>
+          </div>
+        </div>
+        <div class="nav-dropdown-item">
+          <a href="#cosmetics-sale" class="nav-link nav-dropdown-link">
+            <span>Products</span>
+            <svg class="chevron-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="#couture-collection">Handcrafted Bridal Couture</a>
+            <a href="#jewelry-boutique">Royal Bridal Jewelry</a>
+            <a href="#cosmetics-sale">Khan's Beauty Cosmetics</a>
+          </div>
+        </div>
         <a href="#bridal-gallery" class="nav-link">Gallery</a>
-        <a href="#couture-collection" class="nav-link">Couture</a>
         <a href="#reviews" class="nav-link">About Us</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
@@ -112,32 +127,42 @@
   </header>
 
   <!-- ==========================================================================
-       3. HERO SECTION (FAITHFUL TO REFERENCE DESIGN)
+       3. HERO SECTION (EXACT MATCH TO REFERENCE PANORAMIC BANNER)
        ========================================================================== -->
   <section class="hero-section" id="home">
-    <div class="container hero-container">
+    <div class="hero-banner-wrap">
       
+      <!-- Left Floral Background Soft Touch -->
+      <div class="hero-flower-accent" aria-hidden="true"></div>
+
       <!-- Hero Left Content -->
-      <div class="hero-content">
-        <span class="hero-eyebrow">✦ WELCOME TO ✦</span>
-        <h1 class="hero-title">Khan's Saloon</h1>
-        <div class="hero-subtitle-script">Where Beauty Meets Care</div>
-        <p class="hero-desc">
-          From flawless makeup to healthy hair, glowing skin and beautiful nails – we bring out the best version of you.
-        </p>
-        <div class="hero-actions">
-          <button class="btn-hero-pill" onclick="openBookingModal('Bridal & Salon Consultation')">
-            <span>Book Your Appointment</span>
-            <span class="btn-arrow">→</span>
-          </button>
+      <div class="container hero-content-container">
+        <div class="hero-content">
+          <div class="hero-eyebrow">WELCOME TO &nbsp;✦</div>
+          <h1 class="hero-title">Khan's Saloon</h1>
+          <div class="hero-subtitle-script">Where Beauty Meets Care</div>
+          <p class="hero-desc">
+            From flawless makeup to healthy hair, glowing skin and beautiful nails – we bring out the best version of you.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-hero-pill" onclick="openBookingModal('Bridal & Salon Consultation')">
+              <span>Book Your Appointment</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
         </div>
       </div>
 
-      <!-- Hero Right Visual (Clean Portrait from reference image) -->
-      <div class="hero-visual">
-        <div class="hero-model-wrap">
-          <img src="assets/images/hero_model_portrait.png" alt="Khan's Saloon Bridal Beauty" class="hero-model-img" />
-        </div>
+      <!-- Hero Right Panoramic Model Visual (Seamless Blending) -->
+      <div class="hero-panoramic-visual" aria-hidden="true">
+        <img src="assets/images/hero_model_portrait.png" alt="Khan's Saloon Bridal Beauty" class="hero-panoramic-img" />
+      </div>
+
+      <!-- Handwritten Script Calligraphy Overlay (Exact to Reference Mockup) -->
+      <div class="hero-script-sticker" aria-hidden="true">
+        <span>Look Good</span>
+        <span>Feel Better</span>
+        <span class="hero-sticker-heart">♡</span>
       </div>
 
     </div>
@@ -259,7 +284,26 @@
   </section>
 
   <!-- ==========================================================================
-       5. EXCLUSIVE DISCOUNTS GOLD BANNER (EXACT TO IMAGE 2 & 3)
+       5. SALON SERVICES SHOWCASE (EXACT MATCH TO IMAGES 1, 2 & 3)
+       ========================================================================== -->
+  <section class="services-section" id="services-menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">Signature Salon Menu</span>
+        <h2 class="section-title">Professional Salon Services</h2>
+        <p class="section-desc">
+          Indulge in Khan's Saloon world-class treatments crafted with luxury Italian hair care, bespoke cosmetic formulations, and master bridal artisans.
+        </p>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- Rendered dynamically by app.js matching Image 1, 2 & 3 (Makeup, Hair, Nails & Facial, Mehndi) -->
+      <div id="services-container"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. EXCLUSIVE DISCOUNTS GOLD BANNER (EXACT MATCH TO IMAGE 2 & 3)
        ========================================================================== -->
   <section class="discount-banner-section" id="offers">
     <div class="container">
@@ -296,21 +340,21 @@
   </section>
 
   <!-- ==========================================================================
-       6. SALON SERVICES SHOWCASE (EXACT MATCH TO IMAGES 2 & 3)
+       7. KHAN'S COSMETICS & BEAUTY PRODUCTS SALE (MATCHING IMAGE 2 EXACT GRID)
        ========================================================================== -->
-  <section class="services-section" id="services-menu">
+  <section class="cosmetics-section" id="cosmetics-sale">
     <div class="container">
       <div class="section-header">
-        <span class="section-pretitle">Signature Salon Menu</span>
-        <h2 class="section-title">Professional Salon Services</h2>
+        <span class="section-pretitle">Khan's Beauty Line</span>
+        <h2 class="section-title">Khan's Products Sale</h2>
         <p class="section-desc">
-          Indulge in Khan's Saloon world-class treatments crafted with luxury Italian hair care, bespoke cosmetic formulations, and master bridal artisans.
+          Professional makeup artist formulas designed for 24-hour humidity resistance and flawless camera finishes. Add to cart with instant delivery nationwide.
         </p>
         <div class="section-divider"></div>
       </div>
 
-      <!-- Rendered dynamically by app.js matching Image 2 & 3 (Makeup, Hair, Nails & Facial, Mehndi) -->
-      <div id="services-container"></div>
+      <!-- Cosmetics Cards Grid (8 Items in 4x2 Grid) -->
+      <div class="cosmetics-grid" id="cosmetics-grid"></div>
     </div>
   </section>
 
@@ -396,25 +440,6 @@
 
       <!-- Jewelry Cards Grid -->
       <div class="jewelry-grid" id="jewelry-grid"></div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       10. KHAN'S COSMETICS & BEAUTY PRODUCTS SALE (MATCHING IMAGE 2)
-       ========================================================================== -->
-  <section class="cosmetics-section" id="cosmetics-sale">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-pretitle">Khan's Beauty Line</span>
-        <h2 class="section-title">Khan's Products Sale</h2>
-        <p class="section-desc">
-          Professional makeup artist formulas designed for 24-hour humidity resistance and flawless camera finishes. Add to cart with instant delivery nationwide.
-        </p>
-        <div class="section-divider"></div>
-      </div>
-
-      <!-- Cosmetics Cards Grid -->
-      <div class="cosmetics-grid" id="cosmetics-grid"></div>
     </div>
   </section>
 

@@ -66,18 +66,25 @@ function setupStickyHeader() {
   });
 }
 
-// 1. RENDER SALON SERVICES (Matching Image 2 & 3)
+// 1. RENDER SALON SERVICES (Matching Image 1, 2 & 3)
 function renderSalonServices() {
   const container = document.getElementById('services-container');
   if (!container) return;
 
   container.innerHTML = SALOON_DATA.services.map(cat => `
     <div class="service-category-group" id="${slugify(cat.category)}">
-      <div class="service-category-header">
-        <h3 class="service-category-title">${cat.category}</h3>
-        <p class="service-category-prices">${cat.subtitle}</p>
-        <div class="section-divider"></div>
+      <div class="service-category-top-bar">
+        <div class="service-category-titles">
+          <h3 class="service-category-title">${cat.shortTitle || cat.category}</h3>
+          ${cat.tagline ? `<p class="service-category-tagline">${cat.tagline}</p>` : ''}
+        </div>
+        <a href="javascript:void(0)" class="service-view-all-link" onclick="openBookingModal('${cat.shortTitle || cat.category} Consultation')">
+          <span>View All</span>
+          <span>→</span>
+        </a>
       </div>
+      <p class="service-category-prices">${cat.subtitle}</p>
+      
       <div class="service-cards-row">
         ${cat.items.map(item => `
           <div class="service-subcard">
@@ -99,6 +106,13 @@ function renderSalonServices() {
             </div>
           </div>
         `).join('')}
+      </div>
+
+      <!-- Slider indicator dots matching Image 2 -->
+      <div class="service-dots-indicator" aria-hidden="true">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
       </div>
     </div>
   `).join('');

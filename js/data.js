@@ -3,10 +3,12 @@
  */
 
 const SALOON_DATA = {
-  // 1. SALON SERVICES (Matching Image 2 & 3 with bespoke photography)
+  // 1. SALON SERVICES (Matching Image 1, 2 & 3 with bespoke photography)
   services: [
     {
       category: "Makeup Services",
+      shortTitle: "Makeup",
+      tagline: "Enhance your natural beauty with our professional makeup services",
       subtitle: "Bridal Look Rs. 25,000 | Party Makeup Rs. 8,000 | No-Makeup Look Rs. 5,000",
       items: [
         {
@@ -40,6 +42,8 @@ const SALOON_DATA = {
     },
     {
       category: "Hair Services",
+      shortTitle: "Hair Services",
+      tagline: "Transform your hair with luxury Italian coloring, balayage, and precision styling",
       subtitle: "Hair Color/Streaks Rs. 6,000+ | Highlights/Balayage Rs. 8,500+ | Haircuts starting Rs. 1,000",
       items: [
         {
@@ -73,6 +77,8 @@ const SALOON_DATA = {
     },
     {
       category: "Nail Care & Facials",
+      shortTitle: "Nail Care & Facials",
+      tagline: "Indulge in clinical vortex hydra facials, 24K gold masks, and deluxe spa manicures",
       subtitle: "Manicure/Pedicure Rs. 1,500/2,000 | Hydra Facial Rs. 4,500",
       items: [
         {
@@ -106,6 +112,8 @@ const SALOON_DATA = {
     },
     {
       category: "Mehndi Designs",
+      shortTitle: "Mehndi Designs",
+      tagline: "Celebrate your big day with rich organic henna art, intricate Mughal motifs and Arabic floral bels",
       subtitle: "Bridal Mehndi Rs. 10,000 | Simple Mehndi Rs. 1,000 | Arabic Mehndi Rs. 2,500",
       items: [
         {
@@ -331,7 +339,7 @@ const SALOON_DATA = {
     }
   ],
 
-  // 5. KHAN'S COSMETICS & PRODUCTS (Matching Image 2 exact list)
+  // 5. KHAN'S COSMETICS & PRODUCTS (Matching Image 2 exact list of 8 items)
   cosmetics: [
     {
       id: "prod-mascara",
@@ -350,19 +358,35 @@ const SALOON_DATA = {
       icon: "assets/images/cosmetic_facepowder.jpg"
     },
     {
-      id: "prod-flawless-base",
+      id: "prod-flawless-base-1",
       title: "Khan's Flawless Base",
       price: 1200,
       priceFormatted: "Rs. 1,200",
-      desc: "Long-wear 24H full coverage foundation designed for Pakistani humid weather.",
+      desc: "Long-wear 24H full coverage foundation designed for Pakistani skin tones.",
       icon: "assets/images/cosmetic_foundation.jpg"
     },
     {
-      id: "prod-matte-lipstick",
+      id: "prod-matte-lipstick-1",
       title: "Khan's Matte Lipstick",
       price: 600,
       priceFormatted: "Rs. 600",
       desc: "Non-drying velvet matte liquid lipstick in signature bridal nude & rose shades.",
+      icon: "assets/images/cosmetic_lipstick.jpg"
+    },
+    {
+      id: "prod-flawless-base-2",
+      title: "Khan's Flawless Base (Radiant Honey)",
+      price: 1200,
+      priceFormatted: "Rs. 1,200",
+      desc: "Weightless buildable luminous finish foundation with SPF 30 protection.",
+      icon: "assets/images/cosmetic_facepowder.jpg"
+    },
+    {
+      id: "prod-matte-lipstick-2",
+      title: "Khan's Matte Lipstick (Velvet Berry)",
+      price: 600,
+      priceFormatted: "Rs. 600",
+      desc: "Creamy pigmented matte formula enriched with Vitamin E and shea butter.",
       icon: "assets/images/cosmetic_lipstick.jpg"
     },
     {
@@ -375,7 +399,7 @@ const SALOON_DATA = {
     },
     {
       id: "prod-premium-wigs",
-      title: "Premium Wigs & Extensions",
+      title: "Premium Wigs",
       price: 7500,
       priceFormatted: "Rs. 7,500",
       desc: "100% natural human hair seamless clip-in volumizers and lace front wigs.",

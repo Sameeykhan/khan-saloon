@@ -19,7 +19,12 @@ const AppState = {
   discountPercent: 0,
   activeCoupon: '',
   bridalGalleryExpanded: false,
-  currentBridalFilter: 'all'
+  currentBridalFilter: 'all',
+  coutureExpanded: false,
+  currentCoutureFilter: 'all',
+  jewelryExpanded: false,
+  currentJewelryFilter: 'all',
+  cosmeticsExpanded: false
 };
 
 // Helper for clean URL/ID slugs
@@ -91,8 +96,8 @@ function renderSalonServices() {
           <h3 class="service-category-title">${cat.shortTitle || cat.category}</h3>
           ${cat.tagline ? `<p class="service-category-tagline">${cat.tagline}</p>` : ''}
         </div>
-        <a href="javascript:void(0)" class="service-view-all-link" onclick="openBookingModal('${cat.shortTitle || cat.category} Consultation')">
-          <span>View All</span>
+        <a href="services.html#${slugify(cat.category)}" class="service-view-all-link" target="_blank" rel="noopener noreferrer" title="View all ${cat.shortTitle || cat.category} services in Services page">
+          <span>View All Menu</span>
           <span>→</span>
         </a>
       </div>
@@ -235,16 +240,28 @@ function toggleBridalGalleryExpand() {
 
 window.toggleBridalGalleryExpand = toggleBridalGalleryExpand;
 
-// 3. RENDER HANDCRAFTED BRIDAL COUTURE (CRAFT SPECIALIZATIONS)
-function renderBridalDresses(filter = 'all') {
+// 3. RENDER HANDCRAFTED BRIDAL COUTURE (SHOW 3 ENSEMBLES INITIALLY WITH SEE MORE TOGGLE)
+function renderBridalDresses(filter = null) {
   const container = document.getElementById('couture-grid');
   if (!container) return;
 
-  const filtered = filter === 'all'
-    ? SALOON_DATA.dresses
-    : SALOON_DATA.dresses.filter(d => d.designerSlug === filter || d.category === filter);
+  if (filter !== null && filter !== undefined) {
+    if (filter !== AppState.currentCoutureFilter) {
+      AppState.currentCoutureFilter = filter;
+      AppState.coutureExpanded = false;
+    }
+  }
+  const currentFilter = AppState.currentCoutureFilter || 'all';
 
-  container.innerHTML = filtered.map(dress => `
+  const filtered = currentFilter === 'all'
+    ? SALOON_DATA.dresses
+    : SALOON_DATA.dresses.filter(d => d.designerSlug === currentFilter || d.category === currentFilter);
+
+  const initialLimit = 3;
+  const isExpanded = AppState.coutureExpanded;
+  const displayed = isExpanded ? filtered : filtered.slice(0, initialLimit);
+
+  container.innerHTML = displayed.map(dress => `
     <div class="couture-card">
       <div class="couture-img-wrap" onclick="openDressQuickView('${dress.id}')" style="cursor: pointer;">
         <img src="${dress.image}" alt="${dress.title}" loading="lazy" />
@@ -276,18 +293,75 @@ function renderBridalDresses(filter = 'all') {
       </div>
     </div>
   `).join('');
+
+  // Handle See More container
+  let seeMoreWrap = document.getElementById('couture-see-more-wrap');
+  if (!seeMoreWrap) {
+    seeMoreWrap = document.createElement('div');
+    seeMoreWrap.id = 'couture-see-more-wrap';
+    seeMoreWrap.className = 'gallery-see-more-wrap';
+    container.parentNode.insertBefore(seeMoreWrap, container.nextSibling);
+  }
+
+  if (filtered.length > initialLimit) {
+    seeMoreWrap.style.display = 'flex';
+    if (isExpanded) {
+      seeMoreWrap.innerHTML = `
+        <button class="btn-see-more" onclick="toggleCoutureExpand()">
+          <span>See Less Ensembles</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transform: rotate(180deg);">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      `;
+    } else {
+      const remaining = filtered.length - initialLimit;
+      seeMoreWrap.innerHTML = `
+        <button class="btn-see-more" onclick="toggleCoutureExpand()">
+          <span>See More Ensembles (${remaining} More)</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      `;
+    }
+  } else {
+    seeMoreWrap.style.display = 'none';
+  }
 }
 
-// 4. RENDER ROYAL BRIDAL JEWELRY BOUTIQUE
-function renderJewelryBoutique(filter = 'all') {
+function toggleCoutureExpand() {
+  AppState.coutureExpanded = !AppState.coutureExpanded;
+  renderBridalDresses();
+  if (!AppState.coutureExpanded) {
+    const container = document.getElementById('couture-grid');
+    if (container) container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+window.toggleCoutureExpand = toggleCoutureExpand;
+
+// 4. RENDER ROYAL BRIDAL JEWELRY BOUTIQUE (SHOW 4 PIECES INITIALLY WITH SEE MORE TOGGLE)
+function renderJewelryBoutique(filter = null) {
   const container = document.getElementById('jewelry-grid');
   if (!container) return;
 
-  const filtered = filter === 'all'
-    ? SALOON_DATA.jewelry
-    : SALOON_DATA.jewelry.filter(j => j.category === filter);
+  if (filter !== null && filter !== undefined) {
+    if (filter !== AppState.currentJewelryFilter) {
+      AppState.currentJewelryFilter = filter;
+      AppState.jewelryExpanded = false;
+    }
+  }
+  const currentFilter = AppState.currentJewelryFilter || 'all';
 
-  container.innerHTML = filtered.map(item => `
+  const filtered = currentFilter === 'all'
+    ? SALOON_DATA.jewelry
+    : SALOON_DATA.jewelry.filter(j => j.category === currentFilter);
+
+  const initialLimit = 4;
+  const isExpanded = AppState.jewelryExpanded;
+  const displayed = isExpanded ? filtered : filtered.slice(0, initialLimit);
+
+  container.innerHTML = displayed.map(item => `
     <div class="jewelry-card">
       <div class="jewelry-img-wrap">
         <img src="${item.image}" alt="${item.title}" loading="lazy" />
@@ -317,14 +391,64 @@ function renderJewelryBoutique(filter = 'all') {
       </div>
     </div>
   `).join('');
+
+  // Handle See More container
+  let seeMoreWrap = document.getElementById('jewelry-see-more-wrap');
+  if (!seeMoreWrap) {
+    seeMoreWrap = document.createElement('div');
+    seeMoreWrap.id = 'jewelry-see-more-wrap';
+    seeMoreWrap.className = 'gallery-see-more-wrap';
+    container.parentNode.insertBefore(seeMoreWrap, container.nextSibling);
+  }
+
+  if (filtered.length > initialLimit) {
+    seeMoreWrap.style.display = 'flex';
+    if (isExpanded) {
+      seeMoreWrap.innerHTML = `
+        <button class="btn-see-more" onclick="toggleJewelryExpand()">
+          <span>See Less Jewelry</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transform: rotate(180deg);">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      `;
+    } else {
+      const remaining = filtered.length - initialLimit;
+      seeMoreWrap.innerHTML = `
+        <button class="btn-see-more" onclick="toggleJewelryExpand()">
+          <span>See More Jewelry (${remaining} More)</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      `;
+    }
+  } else {
+    seeMoreWrap.style.display = 'none';
+  }
 }
+
+function toggleJewelryExpand() {
+  AppState.jewelryExpanded = !AppState.jewelryExpanded;
+  renderJewelryBoutique();
+  if (!AppState.jewelryExpanded) {
+    const container = document.getElementById('jewelry-grid');
+    if (container) container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+window.toggleJewelryExpand = toggleJewelryExpand;
 
 // 5. RENDER KHAN'S BEAUTY PRODUCTS SALE
 function renderCosmeticsSale() {
   const container = document.getElementById('cosmetics-grid');
   if (!container) return;
 
-  container.innerHTML = SALOON_DATA.cosmetics.map(prod => `
+  const isHomepage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
+  const initialLimit = isHomepage ? 4 : SALOON_DATA.cosmetics.length;
+  const isExpanded = AppState.cosmeticsExpanded;
+  const displayed = (isHomepage && !isExpanded) ? SALOON_DATA.cosmetics.slice(0, initialLimit) : SALOON_DATA.cosmetics;
+
+  container.innerHTML = displayed.map(prod => `
     <div class="cosmetic-card">
       <div class="cosmetic-thumb-wrap">
         <img src="${prod.icon}" alt="${prod.title}" style="object-fit: cover; object-position: center; width: 100%; height: 100%; border-radius: 8px;" loading="lazy" />
@@ -341,7 +465,57 @@ function renderCosmeticsSale() {
       </button>
     </div>
   `).join('');
+
+  if (isHomepage) {
+    let seeMoreWrap = document.getElementById('cosmetics-see-more-wrap');
+    if (!seeMoreWrap) {
+      seeMoreWrap = document.createElement('div');
+      seeMoreWrap.id = 'cosmetics-see-more-wrap';
+      seeMoreWrap.className = 'gallery-see-more-wrap';
+      container.parentNode.insertBefore(seeMoreWrap, container.nextSibling);
+    }
+    seeMoreWrap.style.display = 'flex';
+    seeMoreWrap.style.flexWrap = 'wrap';
+    seeMoreWrap.style.gap = '14px';
+
+    if (isExpanded) {
+      seeMoreWrap.innerHTML = `
+        <button class="btn-see-more" onclick="toggleCosmeticsExpand()">
+          <span>See Less Products</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transform: rotate(180deg);">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <a href="products.html" class="btn-outline-gold" target="_blank" rel="noopener noreferrer" style="padding: 12px 28px; font-size: 0.95rem;">
+          <span>Explore All Products & Couture →</span>
+        </a>
+      `;
+    } else {
+      const remaining = SALOON_DATA.cosmetics.length - initialLimit;
+      seeMoreWrap.innerHTML = `
+        <button class="btn-see-more" onclick="toggleCosmeticsExpand()">
+          <span>See More Products (${remaining} More)</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <a href="products.html" class="btn-outline-gold" target="_blank" rel="noopener noreferrer" style="padding: 12px 28px; font-size: 0.95rem;">
+          <span>Explore All Products & Couture →</span>
+        </a>
+      `;
+    }
+  }
 }
+
+function toggleCosmeticsExpand() {
+  AppState.cosmeticsExpanded = !AppState.cosmeticsExpanded;
+  renderCosmeticsSale();
+  if (!AppState.cosmeticsExpanded) {
+    const container = document.getElementById('cosmetics-grid');
+    if (container) container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+window.toggleCosmeticsExpand = toggleCosmeticsExpand;
 
 // ==========================================================================
 // CART FUNCTIONALITY

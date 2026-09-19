@@ -203,6 +203,17 @@ const SALOON_DATA = {
       lookSummary: "Fresh dewy sun-kissed makeover, golden bronze lid wash, bright peach cheeks and stained lips.",
       dressDetails: "Pure Banarasi handloom raw silk mustard peplum with tangerine flared sharara and gold gotta patti embroidery.",
       jewelryDetails: "Handcrafted yellow meenakari choker, pearl tassel karas, and custom floral accents."
+    },
+    {
+      id: "bride-regal-barat",
+      name: "The Regal Maharani Barat Bride",
+      ceremony: "Barat & Shehnai",
+      category: "barat",
+      image: "assets/images/service_bridal_makeup.jpg",
+      makeupArtist: "Khan's Executive Director",
+      lookSummary: "Iconic Mughal crimson glam with 24K gold foil eyelids, sculpted Arabic contours, and royal ruby pout.",
+      dressDetails: "Heritage maroon lehenga with hand-embossed zardozi border, scalloped organza veil and kiran lace.",
+      jewelryDetails: "Antique 22K gold Kundan guluband, double matha patti, oversized royal nath, and ruby jhumkas."
     }
   ],
 
@@ -267,6 +278,36 @@ const SALOON_DATA = {
       work: "Authentic Gold Gotta Patti, Kiran Lace, Mirrors & Floral Resham",
       includes: "Embroidered Peplum Kurti, Heavy 2-tier Gathered Sharara, Banarasi Chunri Dupatta",
       delivery: "3 - 4 Weeks (Custom Stitched to Measurements)"
+    },
+    {
+      id: "dress-farshi-gharara",
+      title: "'Noor-e-Jahan' Royal Velvet Farshi Gharara with Dabka & Resham",
+      designer: "Khan's Signature Atelier",
+      specialization: "Pure Handcrafted Zardozi & Resham Filigree",
+      designerSlug: "zardozi-dabka",
+      price: 195000,
+      priceFormatted: "Rs. 195,000",
+      category: "zardozi-dabka",
+      image: "assets/images/bride_ivory_gold.png",
+      fabric: "Pure Micro Velvet, Katan Silk & Tissue Silk",
+      work: "Hand-twisted Antique Gold Dabka, Marori, French Knot Resham & Swarovski Pearls",
+      includes: "Flared Farshi Gharara with 3-meter sweeping trail, Embellished Kurti, Two Matching Dupattas",
+      delivery: "5 - 7 Weeks (Custom Stitched to Measurements)"
+    },
+    {
+      id: "dress-pastel-kalidaar",
+      title: "'Pari Mahal' Soft Mint & Silver Crystal Royal Peshwas",
+      designer: "Khan's Royal Bridal Studio",
+      specialization: "Royal Mughal Tilla & Cutdana Filigree Embroidery",
+      designerSlug: "tilla-filigree",
+      price: 175000,
+      priceFormatted: "Rs. 175,000",
+      category: "tilla-filigree",
+      image: "assets/images/bride_mint_green.png",
+      fabric: "Pure Tissue Organza & Shimmer Net",
+      work: "Silver Tilla, Iridescent Cutdana, Hand-sewn Sequins & Scalloped Crystal Borders",
+      includes: "Flared 24-Kali Peshwas, Silk Brocade Churidaar, Embellished Shimmer Dupatta & Potli",
+      delivery: "4 - 6 Weeks (Custom Stitched to Measurements)"
     }
   ],
 
@@ -335,6 +376,45 @@ const SALOON_DATA = {
       image: "assets/images/jewelry_royal_nath.jpg",
       badge: "Traditional",
       desc: "Classic lightweight bridal nose ring with detachable 3-strand pearl chain, filigree gold work, and radiant ruby drop. Clip-on & pierced options available.",
+      inStock: true
+    },
+    {
+      id: "jwl-rani-haar",
+      title: "Mughal Heritage Basra Pearl Rani Haar",
+      category: "bridal-sets",
+      price: 46000,
+      priceFormatted: "Rs. 46,000",
+      rating: 5.0,
+      reviewsCount: 31,
+      image: "assets/images/jewelry_kundan_set.jpg",
+      badge: "Royal Heritage",
+      desc: "Magnificent multi-strand genuine Basra seed pearl rani haar with hand-enameled mint and gold pendant studded with uncut Polki stones.",
+      inStock: true
+    },
+    {
+      id: "jwl-kundan-jhumar",
+      title: "Noor Mahal Kundan & Emerald Bridal Jhumar / Passa",
+      category: "matha-patti",
+      price: 16500,
+      priceFormatted: "Rs. 16,500",
+      rating: 5.0,
+      reviewsCount: 27,
+      image: "assets/images/jewelry_matha_patti.jpg",
+      badge: "Handcrafted",
+      desc: "Traditional aristocratic bridal side headpiece adorned with cascading micro pearls, emerald drops, and 22K gold-plated Kundan work.",
+      inStock: true
+    },
+    {
+      id: "jwl-cocktail-ring",
+      title: "Shahzadi 22K Gold & Uncut Polki Cocktail Ring",
+      category: "bangles",
+      price: 8500,
+      priceFormatted: "Rs. 8,500",
+      rating: 4.9,
+      reviewsCount: 42,
+      image: "assets/images/jewelry_polki_necklace.jpg",
+      badge: "Signature Piece",
+      desc: "Statement oversized royal bridal ring featuring central mirror-cut polki stone surrounded by meenakari petals and adjustable band.",
       inStock: true
     }
   ],

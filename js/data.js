@@ -378,8 +378,8 @@ const SALOON_DATA = {
       title: "Khan's Flawless Base (Radiant Honey)",
       price: 1200,
       priceFormatted: "Rs. 1,200",
-      desc: "Weightless buildable luminous finish foundation with SPF 30 protection.",
-      icon: "assets/images/cosmetic_facepowder.jpg"
+      desc: "Weightless buildable luminous finish compact foundation with SPF 30 protection.",
+      icon: "assets/images/cosmetic_flawless_compact.jpg"
     },
     {
       id: "prod-matte-lipstick-2",
@@ -387,7 +387,7 @@ const SALOON_DATA = {
       price: 600,
       priceFormatted: "Rs. 600",
       desc: "Creamy pigmented matte formula enriched with Vitamin E and shea butter.",
-      icon: "assets/images/cosmetic_lipstick.jpg"
+      icon: "assets/images/cosmetic_lipstick_berry.jpg"
     },
     {
       id: "prod-nail-paints",

@@ -17,7 +17,9 @@ const AppState = {
     AED: 'AED '
   },
   discountPercent: 0,
-  activeCoupon: ''
+  activeCoupon: '',
+  bridalGalleryExpanded: false,
+  currentBridalFilter: 'all'
 };
 
 // Helper for clean URL/ID slugs
@@ -27,6 +29,7 @@ function slugify(text) {
 
 // Initialize App
 document.addEventListener('DOMContentLoaded', () => {
+  loadPreferencesFromStorage();
   loadCartFromStorage();
   renderSalonServices();
   renderBridalGallery('all');
@@ -43,6 +46,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const bookDateInput = document.getElementById('book-date');
   if (bookDateInput) {
     bookDateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
+  }
+
+  // Handle URL hash smooth scrolling across tabs/pages
+  if (window.location.hash) {
+    setTimeout(() => {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 150);
   }
 });
 
@@ -118,16 +131,29 @@ function renderSalonServices() {
   `).join('');
 }
 
-// 2. RENDER PAKISTANI BRIDAL GALLERY
-function renderBridalGallery(filter = 'all') {
+// 2. RENDER PAKISTANI BRIDAL GALLERY (SHOW 2-3 PICTURES INITIALLY WITH SEE MORE TOGGLE)
+function renderBridalGallery(filter = null) {
   const container = document.getElementById('bridal-gallery-grid');
   if (!container) return;
 
-  const filtered = filter === 'all' 
-    ? SALOON_DATA.brides 
-    : SALOON_DATA.brides.filter(b => b.category === filter);
+  if (filter !== null && filter !== undefined) {
+    if (filter !== AppState.currentBridalFilter) {
+      AppState.currentBridalFilter = filter;
+      AppState.bridalGalleryExpanded = false;
+    }
+  }
+  const currentFilter = AppState.currentBridalFilter || 'all';
 
-  container.innerHTML = filtered.map(bride => `
+  const filtered = currentFilter === 'all' 
+    ? SALOON_DATA.brides 
+    : SALOON_DATA.brides.filter(b => b.category === currentFilter);
+
+  // Show only 2-3 pictures initially as requested by user (default limit 3)
+  const initialLimit = 3;
+  const isExpanded = AppState.bridalGalleryExpanded;
+  const displayed = isExpanded ? filtered : filtered.slice(0, initialLimit);
+
+  container.innerHTML = displayed.map(bride => `
     <div class="bridal-card" data-category="${bride.category}">
       <div class="bridal-img-wrap" onclick="openLightbox('${bride.id}')">
         <img src="${bride.image}" alt="${bride.name}" loading="lazy" />
@@ -159,7 +185,55 @@ function renderBridalGallery(filter = 'all') {
       </div>
     </div>
   `).join('');
+
+  // Handle See More button container
+  let seeMoreWrap = document.getElementById('bridal-see-more-wrap');
+  if (!seeMoreWrap) {
+    seeMoreWrap = document.createElement('div');
+    seeMoreWrap.id = 'bridal-see-more-wrap';
+    seeMoreWrap.className = 'gallery-see-more-wrap';
+    container.parentNode.insertBefore(seeMoreWrap, container.nextSibling);
+  }
+
+  if (filtered.length > initialLimit) {
+    seeMoreWrap.style.display = 'flex';
+    if (isExpanded) {
+      seeMoreWrap.innerHTML = `
+        <button class="btn-see-more" onclick="toggleBridalGalleryExpand()">
+          <span>See Less Looks</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transform: rotate(180deg);">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      `;
+    } else {
+      const remaining = filtered.length - initialLimit;
+      seeMoreWrap.innerHTML = `
+        <button class="btn-see-more" onclick="toggleBridalGalleryExpand()">
+          <span>See More Looks (${remaining} More)</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      `;
+    }
+  } else {
+    seeMoreWrap.style.display = 'none';
+  }
 }
+
+function toggleBridalGalleryExpand() {
+  AppState.bridalGalleryExpanded = !AppState.bridalGalleryExpanded;
+  renderBridalGallery();
+  if (!AppState.bridalGalleryExpanded) {
+    const container = document.getElementById('bridal-gallery-grid');
+    if (container) {
+      container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+}
+
+window.toggleBridalGalleryExpand = toggleBridalGalleryExpand;
 
 // 3. RENDER HANDCRAFTED BRIDAL COUTURE (CRAFT SPECIALIZATIONS)
 function renderBridalDresses(filter = 'all') {
@@ -273,6 +347,19 @@ function renderCosmeticsSale() {
 // CART FUNCTIONALITY
 // ==========================================================================
 
+function loadPreferencesFromStorage() {
+  try {
+    const savedCurrency = localStorage.getItem('khans_saloon_currency');
+    if (savedCurrency && AppState.exchangeRates[savedCurrency]) {
+      AppState.currency = savedCurrency;
+      const currencySelect = document.getElementById('currency-selector');
+      if (currencySelect) currencySelect.value = savedCurrency;
+    }
+  } catch (e) {
+    console.error('Error loading preferences', e);
+  }
+}
+
 function loadCartFromStorage() {
   try {
     const saved = localStorage.getItem('khans_saloon_cart');
@@ -291,6 +378,24 @@ function saveCartToStorage() {
     console.error('Error saving cart', e);
   }
 }
+
+// Multi-Tab Synchronization
+window.addEventListener('storage', (e) => {
+  if (e.key === 'khans_saloon_cart') {
+    loadCartFromStorage();
+    updateCartBadge();
+    renderCartDrawer();
+  }
+  if (e.key === 'khans_saloon_currency') {
+    AppState.currency = e.newValue || 'PKR';
+    const sel = document.getElementById('currency-selector');
+    if (sel) sel.value = AppState.currency;
+    renderBridalDresses('all');
+    renderJewelryBoutique('all');
+    renderCosmeticsSale();
+    renderCartDrawer();
+  }
+});
 
 function addToCart(id, title, price, image, type) {
   const existing = AppState.cart.find(item => item.id === id);
@@ -396,15 +501,15 @@ function renderCartDrawer() {
 }
 
 function toggleCartDrawer(show) {
-  const overlay = document.getElementById('cart-drawer-overlay');
+  const overlay = document.getElementById('cart-backdrop') || document.getElementById('cart-drawer-overlay');
   const drawer = document.getElementById('cart-drawer');
   if (show) {
     renderCartDrawer();
-    overlay.classList.add('active');
-    drawer.classList.add('active');
+    if (overlay) overlay.classList.add('active');
+    if (drawer) drawer.classList.add('active');
   } else {
-    overlay.classList.remove('active');
-    drawer.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
+    if (drawer) drawer.classList.remove('active');
   }
 }
 
@@ -1040,6 +1145,9 @@ function setupEventListeners() {
   if (currencySelect) {
     currencySelect.addEventListener('change', (e) => {
       AppState.currency = e.target.value;
+      try {
+        localStorage.setItem('khans_saloon_currency', e.target.value);
+      } catch (err) {}
       renderBridalDresses('all');
       renderJewelryBoutique('all');
       renderCosmeticsSale();

@@ -415,7 +415,7 @@
   position: absolute;
   bottom: 14px;
   left: 14px;
-  background: rgba(17, 14, 12, 0.8);
+  background: rgba(58, 41, 25, 0.88);
   backdrop-filter: blur(8px);
   color: #FFFFFF;
   padding: 6px 14px;
@@ -424,7 +424,8 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  border: 1px solid rgba(212, 175, 55, 0.4);
+  border: 1px solid rgba(222, 184, 105, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .bridal-card-content {
@@ -471,6 +472,47 @@
   flex: 1;
   text-align: center;
   padding: 9px 12px;
+}
+
+/* Bridal Gallery See More Controls */
+.gallery-see-more-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 36px;
+  width: 100%;
+}
+
+.btn-see-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #8E6D38;
+  color: #FFFFFF;
+  border: 1.5px solid #8E6D38;
+  padding: 12px 32px;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  box-shadow: 0 4px 16px rgba(142, 109, 56, 0.28);
+}
+
+.btn-see-more:hover {
+  background: #73511B;
+  border-color: #73511B;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(142, 109, 56, 0.4);
+}
+
+.btn-see-more svg {
+  transition: transform var(--transition-fast);
+}
+
+.btn-see-more:hover svg {
+  transform: translateY(2px);
 }
 
 /* ==========================================================================
@@ -813,21 +855,27 @@
 
 .btn-add-cosmetic {
   width: 100%;
-  background: #171412;
+  background: #8E6D38;
   color: #FFFFFF;
-  padding: 8px 14px;
-  border-radius: var(--radius-sm);
-  font-size: 0.82rem;
+  padding: 10px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
   font-weight: 600;
-  transition: all var(--transition-fast);
+  letter-spacing: 0.02em;
+  transition: all var(--transition-smooth);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
+  box-shadow: 0 3px 10px rgba(142, 109, 56, 0.25);
+  border: none;
+  cursor: pointer;
 }
 
 .btn-add-cosmetic:hover {
-  background: var(--gold-dark);
+  background: #73511B;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(142, 109, 56, 0.4);
 }
 
 /* ==========================================================================
@@ -1016,12 +1064,18 @@
 }
 
 .btn-apply-coupon {
-  padding: 8px 14px;
-  background: var(--text-main);
+  padding: 8px 16px;
+  background: #8E6D38;
   color: #FFFFFF;
   font-size: 0.82rem;
   font-weight: 600;
   border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.btn-apply-coupon:hover {
+  background: #73511B;
 }
 
 .cart-summary-line {
